@@ -1,10 +1,12 @@
 class Genre
-  attr_accessor :name, :genre
+  attr_accessor :name
+  attr_reader :songs
 
   @@all = []
 
   def initialize(name)
     @name = name
+    @songs = []
     save
   end
 
@@ -20,10 +22,10 @@ class Genre
     @@all.clear
   end
 
-  def self.create(name)
-    @@all << Genre.new(name).save
+  def self.create(name)  # this method bypasses #initialize!
+    genre = new(name)
+    genre.save
+    genre
   end
-
-
 
 end

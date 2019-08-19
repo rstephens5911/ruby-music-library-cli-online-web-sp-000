@@ -1,13 +1,26 @@
 class Song
-  attr_accessor :name, :genre
-
+  attr_accessor :name
+  attr_reader :artist, :genre
   @@all = []
 
-  def initialize(name, artist = nil)
+  def initialize(name, artist = nil, genre = nil)
     @name = name
-    @genre = genre
-    @artist = artist
+    self.artist = artist if artist
+    # self.artist = artist will evoke artist= if there IS an artist
+    self.genre = genre if genre
+      # self.artist = artist will evoke artist= if there IS an artist
     save
+  end
+
+  def artist=(artist)
+    @artist = artist # this is the main line of variable= method
+    artist.add_song(self)
+  end
+
+
+  def genre=(genre)
+    @genre = genre  # this is the main line of variable= methods
+    genre.songs << self unless genre.songs.include?(self) # unless = guard clause
   end
 
   def save
@@ -23,12 +36,8 @@ class Song
   end
 
   def self.create(name)  # this method bypasses #initialize!
-    @@all << Song.new(name).save
+    song = new(name)
+    song.save
+    song
   end
-
-  def artist=(name)
-    @artist = name
-    artist.add_song(name)
-  end
-
 end
