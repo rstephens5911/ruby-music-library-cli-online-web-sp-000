@@ -72,7 +72,6 @@ class MusicLibraryController
       puts "#{idx}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     end
   end
-  end
 
 
 
