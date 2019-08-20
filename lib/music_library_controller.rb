@@ -79,7 +79,7 @@ class MusicLibraryController
     Song.all.sort_by(&:name).select.with_index(1) do |song, idx|
       break if song_number == idx
         puts "Playing #{song.name} by #{song.artist.name}"
-      end
+    
     end
   end
 
