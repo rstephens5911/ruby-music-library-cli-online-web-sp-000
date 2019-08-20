@@ -77,7 +77,7 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     song_number = gets.chomp
     Song.all.sort_by(&:name).map.with_index(1) do |song, idx|
-      if song_number == idx
+      if idx == song_number
         puts "Playing #{song.name} by #{song.artist.name}"
       end
     end
