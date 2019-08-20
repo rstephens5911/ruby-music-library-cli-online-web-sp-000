@@ -70,7 +70,6 @@ class MusicLibraryController
     song_number = gets.chomp
     idx = song_number
     list_songs(idx)
-    puts "#{idx}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
   end
 
 
