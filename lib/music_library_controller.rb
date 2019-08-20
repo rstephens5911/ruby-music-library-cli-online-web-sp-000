@@ -1,4 +1,5 @@
 class MusicLibraryController
+  attr_reader :idx
 
   def initialize(path = './db/mp3s')
     MusicImporter.new(path).import
@@ -22,7 +23,7 @@ class MusicLibraryController
     end
   end
 
-  def list_songs
+  def list_songs(idx = nil)
     Song.all.sort_by(&:name).each.with_index(1) do |song, idx|
       puts "#{idx}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     end
