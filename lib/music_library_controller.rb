@@ -24,9 +24,8 @@ class MusicLibraryController
   end
 
   def list_songs
-    play = Song.all.sort_by(&:name).each.with_index(1) do |song, idx|
+    Song.all.sort_by(&:name).each.with_index(1) do |song, idx|
       puts "#{idx}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
-      play
     end
   end
 
