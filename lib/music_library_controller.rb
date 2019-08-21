@@ -74,6 +74,6 @@ class MusicLibraryController
     end
   end
 
-  list_songs
+  self.list_songs
 
 end
