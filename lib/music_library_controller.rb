@@ -74,6 +74,4 @@ class MusicLibraryController
     end
   end
 
-  MusicLibraryController.new(list_songs)
-
 end
